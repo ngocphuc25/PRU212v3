@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => instance;
     private static GameManager instance;
 
+    public ItemContainer inventorycontainer;
     private GameState gameState = GameState.Playing;
 
     private GameObject currentAnimal;
+  
     private int chances = 3;
     private string correctAnswer;
 

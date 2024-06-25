@@ -10,5 +10,7 @@ public interface IItem
 public enum ItemType
 {
     None,
-    Milk
+    Milk,
+    Seed
+
 }
