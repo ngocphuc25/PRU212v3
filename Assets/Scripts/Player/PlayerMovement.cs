@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 LastFacingDir => lastFacingDir;
     public Inventory Inventory => inventory;
     public PlayerMovement Player => player;
-
+    
     private PlayerMovement player;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D playerRb;

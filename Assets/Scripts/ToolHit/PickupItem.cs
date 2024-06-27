@@ -1,4 +1,6 @@
 
+using System.Threading;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PickupItem : MonoBehaviour
@@ -14,6 +16,12 @@ public class PickupItem : MonoBehaviour
     {
         player = PickUpController.instance.player.transform;
     
+    }
+    public void Set(Item item,int count){
+        this.item = item;
+        this.count = count;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = item.icon;
     }
     private void Update()
     {
@@ -32,7 +40,8 @@ public class PickupItem : MonoBehaviour
 
 
         if (distance < 0.1f)
-        { 
+        {
+            //*TODO* Should be moved into specified controller rather than being checked here. 
             if(PickUpController.instance.inventoyContainer!= null)
             {
                     PickUpController.instance.inventoyContainer.Add(item,count);
@@ -43,5 +52,7 @@ public class PickupItem : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        
     }
 }

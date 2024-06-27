@@ -18,8 +18,6 @@ public class CharacterMovement : MonoBehaviour
         lastMotionVector = currentPosition - lastPosition;
         lastPosition = currentPosition;
 
-        // Here you can use lastMotionVector for other logic, like animation or movement
-        // For example:
-        // Debug.Log("Last Motion Vector: " + lastMotionVector);
+        
     }
 }

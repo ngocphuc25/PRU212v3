@@ -5,32 +5,11 @@ using System.Dynamic;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class InventoryPanel : MonoBehaviour
+public class InventoryPanel : ItemPanel
 {
-    [SerializeField] ItemContainer inventory;
-    [SerializeField] List<InventoryButton> buttons; 
-    private void Start() {
-        SetIndex();
+    public override void OnClick(int id)
+    {
+        PickUpController.instance.itemDragAndDropController.OnClick(inventory.slots[id]);
         Show();
-    }
-
-    private void SetIndex()
-    {
-       for (int i = 0 ; i<inventory.slots.Count;i++){
-        buttons[i].SetIndex(i);
-       }
-    }
-
-    private void Show()
-    {
-        for (int i = 0; i< inventory.slots.Count; i++){
-            if(inventory.slots[i].item ==null){
-                buttons[i].Clean();
-            }
-            else
-            {
-                buttons[i].Set(inventory.slots[i]);
-            }
-        }
     }
 }
